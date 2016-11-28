@@ -1,0 +1,36 @@
+<h1><%= @issue.title %></h1>
+<em><%= @issue.description %></em>
+<br>
+<br>
+<h2>Report Card</h2>
+<table>
+<% @issue.categories.each do |category| %>
+  <tr>
+    <td><h3><%= category.title %></h3></td>
+    <td><%= category.description %></td>
+    <td><%= category.score %></td>
+  </tr>
+  <% category.subcategories.each do |subcategory| %>
+    <tr>
+      <td><strong><%= subcategory.title %></strong></td>
+      <td><%= subcategory.description %></td>
+      <td><%= subcategory.score ? subcategory.score : "undefined" %></td>
+    </tr>
+  <% end %>
+<% end %>
+</table>
+
+<h2>Legislation</h2>
+<table>
+  <% @legislation.each do |legislation| %>
+    <tr>
+      <td><h3><%= legislation.title %></h3></td>
+      <td><%= legislation.level %></td>
+      <td><%= legislation.description %></td>
+      <td><%= link_to "[link]", legislation.link %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+<h2>Related News</h2>
