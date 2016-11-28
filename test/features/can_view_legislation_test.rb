@@ -15,9 +15,9 @@ class CanViewLegislationTest < Capybara::Rails::TestCase
 
     visit "/issues/#{bias.id}"
 
-    assert page.has_content? "legislation.title"
-    assert page.has_content? "legislation.description"
-    assert page.has_content? "legislation.level"
+    assert page.has_content? legislation.title
+    assert page.has_content? legislation.description
+    assert page.has_content? legislation.level
     assert page.has_content? "[link]"
   end
 end
