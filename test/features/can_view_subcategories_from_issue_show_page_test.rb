@@ -6,21 +6,26 @@ class CanViewSubcategoriesFromIssueShowPageTest < Capybara::Rails::TestCase
   end
 
   test "subcategories listed on issue show page" do
-    bias = Issue.find_by(title: "Bias-Motivated Harassment and Crime")
+    state = create(:state)
+    issue = Issue.find_by(title: "Bias-Motivated Harassment and Crime")
+    subcat_1, subcat_2, subcat_3 = issue.subcategories.limit(3)
+    subcategory_score_1 = create(:subcategory_score,
+                                 state_id: state.id,
+                                 subcategory_id: subcat_1.id,
+                                 score: 2)
+    subcategory_score_2 = create(:subcategory_score,
+                                 state_id: state.id,
+                                 subcategory_id: subcat_2.id,
+                                 score: 5)
+    subcategory_score_3 = create(:subcategory_score,
+                                 state_id: state.id,
+                                 subcategory_id: subcat_3.id,
+                                 score: 4)
 
-    visit "/issues/#{bias.id}"
+    visit "states/#{state.id}/issues/#{issue.id}"
 
-    assert page.has_content? "Sexual Orientation"
-    assert page.has_content? "Gender Identity"
-    assert page.has_content? "Reporting"
-    assert page.has_content? "Collection"
-    assert page.has_content? "General"
-    assert page.has_content? "LGBTQ"
-    assert page.has_content? "Muslim"
-    assert page.has_content? "Jewish"
-    assert page.has_content? "Immigrant"
-    assert page.has_content? "Race"
-    assert page.has_content? "Attorney General"
-    assert page.has_content? "Immigrant Advocacy Organizations"
+    assert page.has_content? subcat_1.title
+    assert page.has_content? subcat_2.title
+    assert page.has_content? subcat_3.title
   end
 end

@@ -4,7 +4,9 @@ class IssuesController < ApplicationController
   end
 
   def show
+    @state = State.find(params[:state_id])
     @issue = Issue.find(params[:id])
-    @legislation = Legislation.where(issue_id: @issue.id)
+    @legislation = Legislation.where(issue_id: @issue.id,
+                                     state_id: params[:state_id])
   end
 end

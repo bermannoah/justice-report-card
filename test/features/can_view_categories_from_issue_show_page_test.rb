@@ -6,9 +6,10 @@ class CanViewCategoriesFromIssueShowPageTest < Capybara::Rails::TestCase
   end
 
   test "categories listed on issue show page" do
+    state = create(:state)
     bias = Issue.find_by(title: "Bias-Motivated Harassment and Crime")
 
-    visit "/issues/#{bias.id}"
+    visit "states/#{state.id}/issues/#{bias.id}"
     assert page.has_content? "Bias-Motivated Harassment and Crime"
     assert page.has_content? "All residents and visitors have a right"
     assert page.has_content? "Protected Classes"

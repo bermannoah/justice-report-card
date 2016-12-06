@@ -8,13 +8,13 @@
   <tr>
     <td><h3><%= category.title %></h3></td>
     <td><%= category.description %></td>
-    <td><%= category.score %></td>
+    <td><%= category.score(@state) %></td>
   </tr>
-  <% category.subcategories.each do |subcategory| %>
+  <% category.subcategories_by_state(@state).each do |subcategory| %>
     <tr>
       <td><strong><%= subcategory.title %></strong></td>
       <td><%= subcategory.description %></td>
-      <td><%= subcategory.score ? subcategory.score : "undefined" %></td>
+      <td><%= subcategory.score %></td>
     </tr>
   <% end %>
 <% end %>

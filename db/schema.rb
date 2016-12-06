@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161127030044) do
+ActiveRecord::Schema.define(version: 20161206032214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,7 +39,15 @@ ActiveRecord::Schema.define(version: 20161127030044) do
     t.string   "level"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "state_id"
     t.index ["issue_id"], name: "index_legislations_on_issue_id", using: :btree
+    t.index ["state_id"], name: "index_legislations_on_state_id", using: :btree
+  end
+
+  create_table "states", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "subcategories", force: :cascade do |t|
@@ -52,5 +60,18 @@ ActiveRecord::Schema.define(version: 20161127030044) do
     t.index ["category_id"], name: "index_subcategories_on_category_id", using: :btree
   end
 
+  create_table "subcategory_scores", force: :cascade do |t|
+    t.integer  "subcategory_id"
+    t.integer  "state_id"
+    t.integer  "score"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["state_id"], name: "index_subcategory_scores_on_state_id", using: :btree
+    t.index ["subcategory_id"], name: "index_subcategory_scores_on_subcategory_id", using: :btree
+  end
+
   add_foreign_key "legislations", "issues"
+  add_foreign_key "legislations", "states"
+  add_foreign_key "subcategory_scores", "states"
+  add_foreign_key "subcategory_scores", "subcategories"
 end
