@@ -1,14 +1,11 @@
 require "test_helper"
 
 class CanViewSubcategoriesFromIssueShowPageTest < Capybara::Rails::TestCase
-  def setup
-    Rails.application.load_seed
-  end
-
   test "subcategories listed on issue show page" do
     state = create(:state)
-    issue = Issue.find_by(title: "Bias-Motivated Harassment and Crime")
-    subcat_1, subcat_2, subcat_3 = issue.subcategories.limit(3)
+    issue = create(:issue)
+    category = create(:category, issue_id: issue.id)
+    subcat_1, subcat_2, subcat_3 = subcats = create_list(:subcategory, 3, category_id: category.id)
     subcategory_score_1 = create(:subcategory_score,
                                  state_id: state.id,
                                  subcategory_id: subcat_1.id,

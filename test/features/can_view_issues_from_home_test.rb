@@ -6,7 +6,8 @@ class CanViewIssuesFromHomeTest < Capybara::Rails::TestCase
   end
 
   test "home shows issues index" do
+    issue = create(:issue)
     visit '/'
-    assert page.has_content?("Bias-Motivated Harassment and Crime")
+    assert page.has_content?(issue.title)
   end
 end
