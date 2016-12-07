@@ -9,7 +9,7 @@
     <tr>
       <td><%= state.name %></td>
       <% @issues.each do |issue| %>
-        <td><%= state.percent_complete(issue) %></td>
+        <td><%= link_to state.percent_complete(issue), state_issue_path(state,issue) %></td>
       <% end %>
     </tr>
   <% end %>
