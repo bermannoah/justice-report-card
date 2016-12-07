@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The Justice Report Card is a system for documenting public and social support for individuals and communities likely to be affected by Trump's policies. To run the program, follow these steps.
 
-Things you may want to cover:
+* Clone this repo
+* Enter `bundle` in your CLI
+* Enter `rake db:create`, `rake:db:migrate`, and `rake db:seed` in your CLI
+* Run `rails s` in your CLI
+* Visit `localhost:3000` in a browser
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+**Coming Features**
+* Administrator ability to add scores
+* Google OAuth
+* Styling
+* Additional topics
