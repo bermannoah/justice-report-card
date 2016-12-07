@@ -3,6 +3,6 @@ FactoryGirl.define do
     sequence(:title) { |n| "State Title #{n}" }
     sequence(:description) { |n| "State Description #{n}" }
     link "http://example.com"
-    level "State"
+    level "state"
   end
 end

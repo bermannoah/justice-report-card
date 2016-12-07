@@ -16,6 +16,7 @@ group :development, :test do
   gem 'minitest-rails-capybara'
   gem 'launchy'
   gem 'factory_girl_rails'
+  gem 'validate_url'
 end
 
 group :development do

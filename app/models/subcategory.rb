@@ -1,8 +1,6 @@
 class Subcategory < ApplicationRecord
   belongs_to :category
   has_many :subcategory_scores
-
-  def score(state)
-    binding.pry
-  end
+  validates :title, :description, presence: true
+  validates :title, uniqueness: true
 end

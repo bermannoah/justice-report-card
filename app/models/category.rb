@@ -2,6 +2,8 @@ class Category < ApplicationRecord
   belongs_to :issue
   has_many :subcategories
   has_many :subcategory_scores, through: :subcategories
+  validates :title, presence: true, uniqueness: true
+  validates :description, :issue_id, presence: true
 
   def score(state)
     self.subcategory_scores

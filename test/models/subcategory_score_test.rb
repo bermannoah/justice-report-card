@@ -1,9 +1,68 @@
 require "test_helper"
 
 describe SubcategoryScore do
-  let(:subcategory_score) { SubcategoryScore.new }
+  it "is valid with subcategory_id, state_id, and score" do
+    issue = create(:issue)
+    category = create(:category,
+                      issue_id: issue.id)
+    subcategory = create(:subcategory,
+                         category_id: category.id)
+    state = create(:state)
+    subcategory_score = SubcategoryScore.create(subcategory_id: subcategory.id,
+                                                state_id: state.id,
+                                                score: 3)
+    value(subcategory_score).must_be :valid?
+  end
 
-  # it "must be valid" do
-  #   value(subcategory_score).must_be :valid?
-  # end
+  it "is invalid without subcategory_id" do
+    issue = create(:issue)
+    category = create(:category,
+                      issue_id: issue.id)
+    subcategory = create(:subcategory,
+                         category_id: category.id)
+    state = create(:state)
+    subcategory_score = SubcategoryScore.create(state_id: state.id,
+                                                score: 3)
+    value(subcategory_score).must_be :invalid?
+  end
+
+  it "is invalid without state_id" do
+    issue = create(:issue)
+    category = create(:category,
+                      issue_id: issue.id)
+    subcategory = create(:subcategory,
+                         category_id: category.id)
+    state = create(:state)
+    subcategory_score = SubcategoryScore.create(subcategory_id: subcategory.id,
+                                                score: 3)
+    value(subcategory_score).must_be :invalid?
+  end
+
+  it "is invalid without score" do
+    issue = create(:issue)
+    category = create(:category,
+                      issue_id: issue.id)
+    subcategory = create(:subcategory,
+                         category_id: category.id)
+    state = create(:state)
+    subcategory_score = SubcategoryScore.create(subcategory_id: subcategory.id,
+                                                state_id: state.id)
+    value(subcategory_score).must_be :invalid?
+  end
+
+  it "has unique state and subcategory arrangement" do
+    issue = create(:issue)
+    category = create(:category,
+                      issue_id: issue.id)
+    subcategory = create(:subcategory,
+                         category_id: category.id)
+    state = create(:state)
+    subcategory_score_1 = SubcategoryScore.create(subcategory_id: subcategory.id,
+                                                  state_id: state.id,
+                                                  score: 3)
+    subcategory_score_2 = SubcategoryScore.create(subcategory_id: subcategory.id,
+                                                  state_id: state.id,
+                                                  score: 2)
+    value(subcategory_score_2).must_be :invalid?
+  end
 end
