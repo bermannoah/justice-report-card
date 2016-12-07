@@ -1,3 +1,5 @@
+state = State.create(name: "Colorado")
+
 hate_crimes_desc = "All residents and visitors have a right to be free from bias-motivated threats, intimidation, and coercion. They should be free to use public parks and transportation, walk on public streets, attend school, live peacefully, and enjoy other basic rights without being victims of harassment or crime. If harassment or crime does occur, individuals should have legal recourse against perpetrators, access to support and services to help them navigate the legal process, and access to support and services to address the emotional and financial consequences of the offense. Communities should also have processes in place for collecting data about incidents and prevalence of these crimes, evidence of a court system that takes these offenses seriously, and civic education programs in place to encourage inclusivity and tolerance, thus preventing such offenses in the first place."
 category_desc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio."
 subcategory_desc = "Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia."
@@ -33,4 +35,12 @@ ngos = hate_crimes.categories.create(title: "Non-Governmental Leadership", descr
   ngos.subcategories.create(title: "LGBTQ Advocacy", description: subcategory_desc)
   ngos.subcategories.create(title: "Immigrant Advocacy Organizations", description: subcategory_desc)
 
-hate_crimes.legislations.create(title: "Legislation Example 1", description: "tbd", link: "http://www.example.com", level: "State")
+hate_crimes.legislations.create(title: "Legislation Example 1", description: "tbd", link: "www.example_1.com", level: "state", state_id: state.id)
+hate_crimes.legislations.create(title: "Legislation Example 2", description: "tbd", link: "www.example_2.com", level: "state", state_id: state.id)
+hate_crimes.legislations.create(title: "Legislation Example 3", description: "tbd", link: "www.example_3.com", level: "state", state_id: state.id)
+
+Subcategory.all.each do |subcategory|
+  SubcategoryScore.create(subcategory_id: subcategory.id,
+                          state_id: state.id,
+                          score: [1,2,3,4,5].sample)
+end
