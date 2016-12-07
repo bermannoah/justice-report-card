@@ -9,6 +9,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'minitest-rails'
+gem 'validate_url'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -16,7 +17,6 @@ group :development, :test do
   gem 'minitest-rails-capybara'
   gem 'launchy'
   gem 'factory_girl_rails'
-  gem 'validate_url'
 end
 
 group :development do
