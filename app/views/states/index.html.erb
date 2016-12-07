@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th>State</td>
+    <% @issues.each do |issue| %>
+      <th><%= issue.title %></td>
+    <% end %>
+  </tr>
+  <% @states.each do |state| %>
+    <tr>
+      <td><%= state.name %></td>
+      <% @issues.each do |issue| %>
+        <td><%= state.percent_complete(issue) %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

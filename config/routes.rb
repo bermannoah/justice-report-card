@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/', to: 'issues#index'
+  get '/', to: 'states#index'
   get 'issues/:id', to: 'issues#show'
 
   resources :states do
