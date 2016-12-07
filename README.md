@@ -8,6 +8,8 @@ The Justice Report Card is a system for documenting public and social support fo
 * Run `rails s` in your CLI
 * Visit `localhost:3000` in a browser
 
+This app is running live (with godawful styling) at https://pacific-waters-82789.herokuapp.com/. 
+
 **Coming Features**
 * Administrator ability to add scores
 * Google OAuth
