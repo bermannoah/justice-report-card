@@ -1,5 +1,6 @@
 class State < ApplicationRecord
   has_many :subcategory_scores
+  belongs_to :division
   validates :name, presence: true, uniqueness: true
   validates :division_id, presence: true
 

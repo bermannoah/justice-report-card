@@ -3,64 +3,70 @@ r_2 = Region.create(name: "Midwest")
 r_3 = Region.create(name: "South")
 r_4 = Region.create(name: "West")
 
-d_1 = Division.create(name: "New England", region_id: r_1.id)
-d_2 = Division.create(name: "Middle Atlantic", region_id: r_1.id)
-d_3 = Division.create(name: "East North Central", region_id: r_2.id)
-d_4 = Division.create(name: "West North Central", region_id: r_2.id)
-d_5 = Division.create(name: "South Atlantic", region_id: r_3.id)
-d_6 = Division.create(name: "East South Central", region_id: r_3.id)
-d_7 = Division.create(name: "West South Central", region_id: r_3.id)
-d_8 = Division.create(name: "Mountain", region_id: r_4.id)
-d_9 = Division.create(name: "Pacific", region_id: r_4.id)
+Division.create(name: "New England", region_id: r_1.id)
+Division.create(name: "Middle Atlantic", region_id: r_1.id)
+Division.create(name: "East North Central", region_id: r_2.id)
+Division.create(name: "West North Central", region_id: r_2.id)
+Division.create(name: "South Atlantic", region_id: r_3.id)
+Division.create(name: "East South Central", region_id: r_3.id)
+Division.create(name: "West South Central", region_id: r_3.id)
+Division.create(name: "Mountain", region_id: r_4.id)
+Division.create(name: "Pacific", region_id: r_4.id)
 
-State.create(name: "Connecticut", division_id: d_1.id)
-State.create(name: "Maine", division_id: d_1.id)
-State.create(name: "Massachusetts", division_id: d_1.id)
-State.create(name: "New Hampshire", division_id: d_1.id)
-State.create(name: "Rhode Island", division_id: d_1.id)
-State.create(name: "Vermont", division_id: d_1.id)
-State.create(name: "New Jersey", division_id: d_2.id)
-State.create(name: "New York", division_id: d_2.id)
-State.create(name: "Pennsylvania", division_id: d_2.id)
-State.create(name: "Illinois", division_id: d_3.id)
-State.create(name: "Indiana", division_id: d_3.id)
-State.create(name: "Michigan", division_id: d_3.id)
-State.create(name: "Ohio", division_id: d_3.id)
-State.create(name: "Wisconsin", division_id: d_3.id)
-State.create(name: "Iowa", division_id: d_4.id)
-State.create(name: "Kansas", division_id: d_4.id)
-State.create(name: "Minnesota", division_id: d_4.id)
-State.create(name: "Missouri", division_id: d_4.id)
-State.create(name: "Nebraska", division_id: d_4.id)
-State.create(name: "North Dakota", division_id: d_4.id)
-State.create(name: "South Dakota", division_id: d_4.id)
-State.create(name: "Delaware", division_id: d_5.id)
-State.create(name: "District of Columbia", division_id: d_5.id)
-State.create(name: "Florida", division_id: d_5.id)
-State.create(name: "Georgia", division_id: d_5.id)
-State.create(name: "Maryland", division_id: d_5.id)
-State.create(name: "North Carolina", division_id: d_5.id)
-State.create(name: "South Carolina", division_id: d_5.id)
-State.create(name: "Virginia", division_id: d_5.id)
-State.create(name: "West Virginia", division_id: d_5.id)
-State.create(name: "Alabama", division_id: d_6.id)
-State.create(name: "Kentucky", division_id: d_6.id)
-State.create(name: "Mississippi", division_id: d_6.id)
-State.create(name: "Tennessee", division_id: d_6.id)
-State.create(name: "Arkansas", division_id: d_7.id)
-State.create(name: "Louisiana", division_id: d_7.id)
-State.create(name: "Oklahoma", division_id: d_7.id)
-State.create(name: "Texas", division_id: d_7.id)
-State.create(name: "Arizona", division_id: d_8.id)
-State.create(name: "Colorado", division_id: d_8.id)
-State.create(name: "Idaho", division_id: d_8.id)
-State.create(name: "Montana", division_id: d_8.id)
-State.create(name: "Nevada", division_id: d_8.id)
-State.create(name: "New Mexico", division_id: d_8.id)
-State.create(name: "Utah", division_id: d_8.id)
-State.create(name: "Wyoming", division_id: d_8.id)
-State.create(name: "Alaska", division_id: d_9.id)
-State.create(name: "California", division_id: d_9.id)
-State.create(name: "Hawaii", division_id: d_9.id)
-State.create(name: "Oregon", division_id: d_9.id)
-State.create(name: "Washington", division_id: d_9.id)
+states = [["Connecticut", "New England"]
+          ["Maine", "New England"]
+          ["Massachusetts", "New England"]
+          ["New Hampshire", "New England"]
+          ["Rhode Island", "New England"]
+          ["Vermont", "New England"]
+          ["New Jersey", "Middle Atlantic"]
+          ["New York", "Middle Atlantic"]
+          ["Pennsylvania", "Middle Atlantic"]
+          ["Illinois", "East North Central"]
+          ["Indiana", "East North Central"]
+          ["Michigan", "East North Central"]
+          ["Ohio", "East North Central"]
+          ["Wisconsin", "East North Central"]
+          ["Iowa", "West North Central"]
+          ["Kansas", "West North Central"]
+          ["Minnesota", "West North Central"]
+          ["Missouri", "West North Central"]
+          ["Nebraska", "West North Central"]
+          ["North Dakota", "West North Central"]
+          ["South Dakota", "West North Central"]
+          ["Delaware", "South Atlantic"]
+          ["District of Columbia", "South Atlantic"]
+          ["Florida", "South Atlantic"]
+          ["Georgia", "South Atlantic"]
+          ["Maryland", "South Atlantic"]
+          ["North Carolina", "South Atlantic"]
+          ["South Carolina", "South Atlantic"]
+          ["Virginia", "South Atlantic"]
+          ["West Virginia", "South Atlantic"]
+          ["Alabama", "East South Central"]
+          ["Kentucky", "East South Central"]
+          ["Mississippi", "East South Central"]
+          ["Tennessee", "East South Central"]
+          ["Arkansas", "West South Central"]
+          ["Louisiana", "West South Central"]
+          ["Oklahoma", "West South Central"]
+          ["Texas", "West South Central"]
+          ["Arizona", "Mountain"]
+          ["Colorado", "Mountain"]
+          ["Idaho", "Mountain"]
+          ["Montana", "Mountain"]
+          ["Nevada", "Mountain"]
+          ["New Mexico", "Mountain"]
+          ["Utah", "Mountain"]
+          ["Wyoming", "Mountain"]
+          ["Alaska", "Pacific"]
+          ["California", "Pacific"]
+          ["Hawaii", "Pacific"]
+          ["Oregon", "Pacific"]
+          ["Washington", "Pacific"]]
+
+states.each do |state, division|
+  Division.find_by(name: division).states.create(name: state)
+end
+
+# states = [["Connecticut", "New England"], ["Maine", "New England"],["Massachusetts", "New England"], ["New Hampshire", "New England"], ["Rhode Island", "New England"], ["Vermont", "New England"],["New Jersey", "Middle Atlantic"], ["New York", "Middle Atlantic"],["Pennsylvania", "Middle Atlantic"], ["Illinois", "East North Central"], ["Indiana", "East North Central"],["Michigan", "East North Central"], ["Ohio", "East North Central"],["Wisconsin", "East North Central"], ["Iowa", "West North Central"],["Kansas", "West North Central"],["Minnesota", "West North Central"], ["Missouri", "West North Central"], ["Nebraska", "West North Central"],["North Dakota", "West North Central"], ["South Dakota", "West North Central"], ["Delaware", "South Atlantic"],["District of Columbia", "South Atlantic"], ["Florida", "South Atlantic"], ["Georgia", "South Atlantic"],["Maryland", "South Atlantic"],["North Carolina", "South Atlantic"], ["South Carolina", "South Atlantic"], ["Virginia", "South Atlantic"],["West Virginia", "South Atlantic"], ["Alabama", "East South Central"],["Kentucky", "East South Central"],["Mississippi", "East South Central"], ["Tennessee", "East South Central"], ["Arkansas", "West South Central"],["Louisiana", "West South Central"], ["Oklahoma", "West South Central"], ["Texas", "West South Central"], ["Arizona", "Mountain"],["Colorado", "Mountain"], ["Idaho", "Mountain"],["Montana", "Mountain"], ["Nevada", "Mountain"],["New Mexico", "Mountain"], ["Utah", "Mountain"],["Wyoming", "Mountain"], ["Alaska", "Pacific"],["California", "Pacific"], ["Hawaii", "Pacific"], ["Oregon", "Pacific"],["Washington", "Pacific"]]
