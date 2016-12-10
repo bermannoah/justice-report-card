@@ -2,7 +2,9 @@ require "test_helper"
 
 class CanViewLegislationTest < Capybara::Rails::TestCase
   test "legislation shown on issue show page" do
-    state = create(:state)
+    region = create(:region)
+    division = create(:division, region_id: region.id)
+    state = create(:state, division_id: division.id)
     issue = create(:issue)
     legislation = create(:legislation,
                          issue_id: issue.id,
@@ -17,8 +19,10 @@ class CanViewLegislationTest < Capybara::Rails::TestCase
   end
 
   test "only legislation matching state shown on issue show page" do
-    state_1 = create(:state)
-    state_2 = create(:state)
+    region = create(:region)
+    division = create(:division, region_id: region.id)
+    state_1 = create(:state, division_id: division.id)
+    state_2 = create(:state, division_id: division.id)
     issue = create(:issue)
     legislation_1 = create(:legislation,
                          issue_id: issue.id,

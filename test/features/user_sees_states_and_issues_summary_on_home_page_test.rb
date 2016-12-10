@@ -2,7 +2,9 @@ require "test_helper"
 
 class UserSeesStatesAndIssuesSummaryOnHomePageTest < Capybara::Rails::TestCase
   test "states and issues listed on homepage" do
-    state_1, state_2, state_3 = create_list(:state, 3)
+    region = create(:region)
+    division = create(:division, region_id: region.id)
+    state_1, state_2, state_3 = create_list(:state, 3, division_id: division.id)
     issue = create(:issue)
     category = create(:category, issue_id: issue.id)
     subcat_1, subcat_2, subcat_3 = subcats = create_list(:subcategory, 3, category_id: category.id)

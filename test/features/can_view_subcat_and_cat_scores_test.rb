@@ -9,7 +9,9 @@ class CanViewSubcatAndCatScoresTest < Capybara::Rails::TestCase
     subcategory_2a = create(:subcategory, category_id: category_2.id)
     subcategory_2b = create(:subcategory, category_id: category_2.id)
 
-    state = create(:state)
+    region = create(:region)
+    division = create(:division, region_id: region.id)
+    state = create(:state, division_id: division.id)
     subcategory_score_1 = create(:subcategory_score,
                                  subcategory_id: subcategory_1.id,
                                  score: 3,

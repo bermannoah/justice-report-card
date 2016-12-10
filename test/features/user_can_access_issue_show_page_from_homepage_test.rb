@@ -2,7 +2,9 @@ require "test_helper"
 
 class UserCanAccessIssueShowPageFromHomepageTest < Capybara::Rails::TestCase
   test "link to issue show page from homepage" do
-    state = create(:state)
+    region = create(:region)
+    division = create(:division, region_id: region.id)
+    state = create(:state, division_id: division.id)
     issue = create(:issue)
     category = create(:category, issue_id: issue.id)
     subcat = create(:subcategory, category_id: category.id)

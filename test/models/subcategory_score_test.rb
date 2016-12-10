@@ -7,7 +7,9 @@ describe SubcategoryScore do
                       issue_id: issue.id)
     subcategory = create(:subcategory,
                          category_id: category.id)
-    state = create(:state)
+    region = create(:region)
+    division = create(:division, region_id: region.id)
+    state = create(:state, division_id: division.id)
     subcategory_score = SubcategoryScore.create(subcategory_id: subcategory.id,
                                                 state_id: state.id,
                                                 score: 3)
@@ -20,7 +22,9 @@ describe SubcategoryScore do
                       issue_id: issue.id)
     subcategory = create(:subcategory,
                          category_id: category.id)
-    state = create(:state)
+    region = create(:region)
+    division = create(:division, region_id: region.id)
+    state = create(:state, division_id: division.id)
     subcategory_score = SubcategoryScore.create(state_id: state.id,
                                                 score: 3)
     value(subcategory_score).must_be :invalid?
@@ -32,7 +36,9 @@ describe SubcategoryScore do
                       issue_id: issue.id)
     subcategory = create(:subcategory,
                          category_id: category.id)
-    state = create(:state)
+    region = create(:region)
+    division = create(:division, region_id: region.id)
+    state = create(:state, division_id: division.id)
     subcategory_score = SubcategoryScore.create(subcategory_id: subcategory.id,
                                                 score: 3)
     value(subcategory_score).must_be :invalid?
@@ -44,7 +50,9 @@ describe SubcategoryScore do
                       issue_id: issue.id)
     subcategory = create(:subcategory,
                          category_id: category.id)
-    state = create(:state)
+    region = create(:region)
+    division = create(:division, region_id: region.id)
+    state = create(:state, division_id: division.id)
     subcategory_score = SubcategoryScore.create(subcategory_id: subcategory.id,
                                                 state_id: state.id)
     value(subcategory_score).must_be :invalid?
@@ -56,7 +64,9 @@ describe SubcategoryScore do
                       issue_id: issue.id)
     subcategory = create(:subcategory,
                          category_id: category.id)
-    state = create(:state)
+    region = create(:region)
+    division = create(:division, region_id: region.id)
+    state = create(:state, division_id: division.id)
     subcategory_score_1 = SubcategoryScore.create(subcategory_id: subcategory.id,
                                                   state_id: state.id,
                                                   score: 3)
