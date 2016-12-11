@@ -5,12 +5,22 @@
       <th><%= issue.title %></td>
     <% end %>
   </tr>
-  <% @states.each do |state| %>
+  <% @regions.each do |region| %>
     <tr>
-      <td><%= state.name %></td>
-      <% @issues.each do |issue| %>
-        <td><%= link_to state.percent_complete(issue), state_issue_path(state,issue) %></td>
-      <% end %>
+      <td><%= region.name %></td>
     </tr>
+    <% region.divisions.each do |division| %>
+      <tr>
+        <td><%= division.name %></td>
+      </tr>
+      <% division.states.each do |state| %>
+        <tr>
+          <td><%= state.name %></td>
+          <% @issues.each do |issue| %>
+            <td><%= link_to state.percent_complete(issue), state_issue_path(state,issue) %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    <% end %>
   <% end %>
 </table>

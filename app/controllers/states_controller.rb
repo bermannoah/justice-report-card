@@ -1,6 +1,7 @@
 class StatesController < ApplicationController
   def index
-    @states = State.all
+    @regions = Region.all
+    # @states = State.all
     @issues = Issue.all
   end
 end
