@@ -1,23 +1,22 @@
 <table>
-  <tr>
-    <th>State</td>
-    <% @issues.each do |issue| %>
-      <th><%= issue.title %></td>
-    <% end %>
-  </tr>
   <% @regions.each do |region| %>
-    <tr>
-      <td><%= region.name %></td>
+    <tr class="region-row">
+      <td><%= region.name.upcase %></td>
+      <% @issues.each do |issue| %>
+        <td><%= issue.title %></td>
+      <% end %>
+
     </tr>
     <% region.divisions.each do |division| %>
-      <tr>
+      <tr class="division-row">
         <td><%= division.name %></td>
+        <td></td>
       </tr>
       <% division.states.each do |state| %>
-        <tr>
+        <tr class="state-row">
           <td><%= state.name %></td>
           <% @issues.each do |issue| %>
-            <td><%= link_to state.percent_complete(issue), state_issue_path(state,issue) %></td>
+            <td id="home-rates"><%= link_to state.percent_complete(issue), state_issue_path(state,issue) %></td>
           <% end %>
         </tr>
       <% end %>

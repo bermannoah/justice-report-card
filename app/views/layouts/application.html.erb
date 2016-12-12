@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>JusticeReportCard</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <title>Justice Report</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
-
   <body>
-    <%= yield %>
+    <nav>
+      <div>
+        <a href="#" id="title">The Justice Report</a>
+      </div>
+    </nav>
+    <div id="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
