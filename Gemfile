@@ -18,6 +18,8 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'pry'
   gem 'minitest-rails-capybara'
+  gem 'selenium-webdriver'
+  gem 'zip'
   gem 'launchy'
   gem 'factory_girl_rails'
 end

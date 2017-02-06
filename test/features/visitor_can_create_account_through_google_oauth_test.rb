@@ -9,6 +9,7 @@ require 'test_helper'
 
 class CanCreateAccountThroughGoogleOAuth < Capybara::Rails::TestCase
   test 'visitor can create an account through google oauth' do
+    Capybara.default_driver = :selenium
     visit '/'
 
     assert page.has_link?('Create Account', href: '/auth/google_oauth2')
