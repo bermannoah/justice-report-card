@@ -10,6 +10,9 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'minitest-rails'
 gem 'validate_url'
+gem "omniauth-google-oauth2", "~> 0.2.1"
+gem 'figaro'
+
 
 group :development, :test do
   gem 'byebug', platform: :mri
