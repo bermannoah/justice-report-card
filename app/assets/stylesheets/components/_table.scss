@@ -1,0 +1,35 @@
+table td {
+  padding: 1px 5px 1px 5px;
+}
+
+tr.region-row td {
+  height: 24px;
+  font-size: 14px;
+  font-weight: bold;
+  height: 30px;
+  border-bottom: solid black 3px;
+  vertical-align: bottom;
+  column-span: all;
+  ;
+}
+
+tr.division-row td {
+  height: 24px;
+  font-size: 12px;
+  font-weight: bold;
+  border-bottom: solid black 1px;
+  color: #6c6d6f;
+}
+
+tr.state-row {
+  td {
+    font-size: 12px;
+    height: 24px;
+    border-bottom: solid #DCDCDC 1px;
+    padding: 1px 4px 0px 4px;
+    &#home-rates {
+      text-align: center;
+      border-bottom: solid #DCDCDC 1px;
+    }
+  }
+}
