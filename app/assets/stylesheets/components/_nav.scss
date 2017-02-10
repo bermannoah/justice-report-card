@@ -1,6 +1,6 @@
 nav {
   height: 80px;
-  background-color: #DCDCDC;
+  background-color: $red;
   padding: 0px 0px 0px 10px;
   margin: 0;
   display: flex;
@@ -8,8 +8,12 @@ nav {
   justify-content: space-between;
   align-items: center;
   a {
-    color: black;
+    color: $white;
     text-decoration: none;
     margin-right: 20px;
+    &#title {
+      font-family: $header-font;
+      font-size: 60px;
+    }
   }
 }
